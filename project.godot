@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Dang Dice Web"
+run/main_scene="uid://bmrt1ibnuckse"
+config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/image="uid://c1flssxjsnva7"
+config/icon="uid://byh0xdfkbk0rm"
+config/macos_native_icon="res://Images/icon.icns"
+config/windows_native_icon="res://Images/icon.ico"
+
+[autoload]
+
+HSessions="*uid://bieh2rxxahuu2"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/size/resizable=false
+window/size/transparent=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

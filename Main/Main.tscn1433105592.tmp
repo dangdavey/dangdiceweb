@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://bmrt1ibnuckse"]
+
+[ext_resource type="Script" uid="uid://cjhh7ntrwdbxi" path="res://Main/Main.gd" id="1_83ytx"]
+[ext_resource type="Script" uid="uid://b6jxcgtysqeh5" path="res://Main/GameState.gd" id="2_amygn"]
+[ext_resource type="Texture2D" uid="uid://c4o2xeqjchnr3" path="res://Images/RollDieButtonSprite.png" id="3_6aewd"]
+[ext_resource type="Texture2D" uid="uid://cdnm24o34adot" path="res://Images/d20PixelSprite.png" id="3_amygn"]
+[ext_resource type="Script" uid="uid://cbqpwdqs6hkeu" path="res://Dice/Dice.gd" id="4_ps1la"]
+[ext_resource type="Script" uid="uid://cxxefphecb3mw" path="res://Main/RollButtonSprite.gd" id="4_u2i7p"]
+
+[node name="Main" type="Control" unique_id=1136447157]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_83ytx")
+
+[node name="GameState" type="Node" parent="." unique_id=821550653]
+script = ExtResource("2_amygn")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1632809405]
+visibility_layer = 512
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17798176, 6.317161e-08, 0.08678726, 1)
+
+[node name="TurnLabel" type="Label" parent="." unique_id=737516884]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13700001
+offset_bottom = 0.17599487
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DieLabel" type="Label" parent="." unique_id=748150506]
+visibility_layer = 64
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.028
+anchor_right = 0.72800004
+anchor_bottom = 0.192
+offset_left = -0.7360077
+offset_top = 11.7439995
+offset_right = -0.74401855
+offset_bottom = 11.815994
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RollValueLabel" type="Label" parent="." unique_id=570802614]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.30800003
+anchor_right = 0.87700003
+anchor_bottom = 0.605
+offset_left = 0.11199188
+offset_top = -62.81604
+offset_right = -0.2960205
+offset_bottom = -62.960022
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameLog" type="Label" parent="." unique_id=1055885451]
+visibility_layer = 8
+custom_maximum_size = Vector2(-1, 200.205)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30600002
+anchor_top = 0.832
+anchor_right = 0.70900005
+anchor_bottom = 0.989
+offset_left = -0.28799438
+offset_top = -0.46398926
+offset_right = -52.432037
+offset_bottom = -36.328003
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.25, 1.25)
+horizontal_alignment = 1
+text_direction = 3
+
+[node name="WinnerLabel" type="Label" parent="." unique_id=978615299]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 207.0
+offset_right = 583.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RollButtonSprite" type="Sprite2D" parent="." unique_id=476995116]
+z_index = 1
+position = Vector2(328.5, 764)
+scale = Vector2(2.5113637, 2.7580645)
+texture = ExtResource("3_6aewd")
+hframes = 5
+vframes = 8
+script = ExtResource("4_u2i7p")
+
+[node name="RollButton" type="Button" parent="." unique_id=122705449]
+visibility_layer = 2
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.62700003
+anchor_right = 0.679
+anchor_bottom = 0.70000005
+offset_left = 0.27198792
+offset_top = -0.3040161
+offset_right = 0.0079956055
+offset_bottom = -0.4000244
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+icon_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=2007020439]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30600002
+anchor_top = 0.609
+anchor_right = 0.71000004
+anchor_bottom = 0.734
+offset_left = -0.28800964
+offset_top = -0.5680542
+offset_right = -0.08001709
+offset_bottom = -0.5680542
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/icon_disabled_color = Color(0.16445974, 0.16445976, 0.16445974, 0.4)
+theme_override_font_sizes/font_size = 49
+text = "Reset?"
+
+[node name="SubViewportContainer" type="Control" parent="." unique_id=1029196840]
+visible = false
+light_mask = 0
+visibility_layer = 16
+anchors_preset = 0
+offset_right = 648.0
+offset_bottom = 1152.0
+
+[node name="DiceSprite" type="Sprite2D" parent="." unique_id=39429690]
+position = Vector2(319, 501)
+texture = ExtResource("3_amygn")
+hframes = 5
+vframes = 9
+script = ExtResource("4_ps1la")

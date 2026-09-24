@@ -1,0 +1,386 @@
+[gd_scene format=3 uid="uid://bmrt1ibnuckse"]
+
+[ext_resource type="Script" uid="uid://cjhh7ntrwdbxi" path="res://Main/Main.gd" id="1_83ytx"]
+[ext_resource type="Script" uid="uid://b6jxcgtysqeh5" path="res://Main/GameState.gd" id="2_amygn"]
+[ext_resource type="Texture2D" uid="uid://c4o2xeqjchnr3" path="res://Images/RollDieButtonSprite.png" id="3_6aewd"]
+[ext_resource type="Texture2D" uid="uid://cdnm24o34adot" path="res://Images/d20PixelSprite.png" id="3_amygn"]
+[ext_resource type="Script" uid="uid://cbqpwdqs6hkeu" path="res://Dice/Dice.gd" id="4_ps1la"]
+[ext_resource type="AudioStream" uid="uid://cs2ufxs5rkynf" path="res://Audio/falling down a well fade.mp3" id="6_u2i7p"]
+[ext_resource type="AudioStream" uid="uid://c2eg5nbgebsjl" path="res://Audio/Victory Sound.mp3" id="7_hh5pf"]
+[ext_resource type="Texture2D" uid="uid://cb7v331cpytht" path="res://Images/LoserSkull.webp" id="8_bor5n"]
+[ext_resource type="Texture2D" uid="uid://bxns6a1u8a4j7" path="res://Images/WinnerWorks.png" id="9_wltqy"]
+[ext_resource type="Script" uid="uid://dhgtqcj278qgl" path="res://Main/eos_login.gd" id="10_wltqy"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bor5n"]
+properties/0/path = NodePath("RollButtonSprite:frame")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("RollButton:disabled")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("RollButton:button_pressed")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("ResetButton:disabled")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("DiceSprite:frame")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("DiceSprite:position")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("RollButtonSprite:visible")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath("TurnLabel:text")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath("TurnLabel:visible")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+properties/9/path = NodePath("DieLabel:text")
+properties/9/spawn = true
+properties/9/replication_mode = 1
+properties/10/path = NodePath("DieLabel:visible")
+properties/10/spawn = true
+properties/10/replication_mode = 1
+properties/11/path = NodePath("RollValueLabel:text")
+properties/11/spawn = true
+properties/11/replication_mode = 1
+properties/12/path = NodePath("RollValueLabel:visible")
+properties/12/spawn = true
+properties/12/replication_mode = 1
+properties/13/path = NodePath("Background:color")
+properties/13/spawn = true
+properties/13/replication_mode = 1
+properties/14/path = NodePath("LoserSkull:visible")
+properties/14/spawn = true
+properties/14/replication_mode = 1
+properties/15/path = NodePath("LoserSkull:frame")
+properties/15/spawn = true
+properties/15/replication_mode = 1
+properties/16/path = NodePath("DiceSprite:rotation")
+properties/16/spawn = true
+properties/16/replication_mode = 1
+properties/17/path = NodePath("LoseSound:volume_db")
+properties/17/spawn = true
+properties/17/replication_mode = 1
+properties/18/path = NodePath("LoseSound:playing")
+properties/18/spawn = true
+properties/18/replication_mode = 1
+properties/19/path = NodePath("VictorySound:volume_db")
+properties/19/spawn = true
+properties/19/replication_mode = 1
+properties/20/path = NodePath("VictorySound:pitch_scale")
+properties/20/spawn = true
+properties/20/replication_mode = 1
+properties/21/path = NodePath("VictorySound:playing")
+properties/21/spawn = true
+properties/21/replication_mode = 1
+properties/22/path = NodePath("WinnerSprite:frame")
+properties/22/spawn = true
+properties/22/replication_mode = 1
+properties/23/path = NodePath("WinnerSprite:position")
+properties/23/spawn = true
+properties/23/replication_mode = 1
+properties/24/path = NodePath("WinnerSprite:visible")
+properties/24/spawn = true
+properties/24/replication_mode = 1
+properties/25/path = NodePath("GameLog:text")
+properties/25/spawn = true
+properties/25/replication_mode = 1
+properties/26/path = NodePath("GameLog:paragraph_separator")
+properties/26/spawn = true
+properties/26/replication_mode = 1
+properties/27/path = NodePath("GameLog:autowrap_mode")
+properties/27/spawn = true
+properties/27/replication_mode = 1
+properties/28/path = NodePath("GameLog:autowrap_trim_flags")
+properties/28/spawn = true
+properties/28/replication_mode = 1
+properties/29/path = NodePath("GameLog:horizontal_alignment")
+properties/29/spawn = true
+properties/29/replication_mode = 1
+properties/30/path = NodePath("GameLog:visible_characters")
+properties/30/spawn = true
+properties/30/replication_mode = 1
+properties/31/path = NodePath("GameLog:visible_characters_behavior")
+properties/31/spawn = true
+properties/31/replication_mode = 1
+properties/32/path = NodePath("GameLog:text_direction")
+properties/32/spawn = true
+properties/32/replication_mode = 1
+properties/33/path = NodePath("GameLog:grow_vertical")
+properties/33/spawn = true
+properties/33/replication_mode = 1
+properties/34/path = NodePath("GameLog:grow_horizontal")
+properties/34/spawn = true
+properties/34/replication_mode = 1
+properties/35/path = NodePath("GameState:process_mode")
+properties/35/spawn = true
+properties/35/replication_mode = 1
+
+[node name="Main" type="Control" unique_id=1136447157]
+light_mask = 512
+visibility_layer = 512
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -576.0
+offset_right = 324.0
+offset_bottom = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_83ytx")
+
+[node name="GameState" type="Node" parent="." unique_id=821550653]
+script = ExtResource("2_amygn")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1632809405]
+visibility_layer = 512
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2913903, 0.018526686, 0.15855408, 1)
+
+[node name="TurnLabel" type="Label" parent="." unique_id=737516884]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13700001
+offset_bottom = 0.17599487
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DieLabel" type="Label" parent="." unique_id=748150506]
+visibility_layer = 64
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.028
+anchor_right = 0.72800004
+anchor_bottom = 0.192
+offset_left = -0.7360077
+offset_top = 11.7439995
+offset_right = -0.74401855
+offset_bottom = 11.815994
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RollValueLabel" type="Label" parent="." unique_id=570802614]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.30800003
+anchor_right = 0.87700003
+anchor_bottom = 0.605
+offset_left = 0.11199188
+offset_top = -62.81604
+offset_right = -0.2960205
+offset_bottom = -62.960022
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameLog" type="Label" parent="." unique_id=1055885451]
+visibility_layer = 8
+custom_maximum_size = Vector2(-1, 200.205)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30600002
+anchor_top = 0.76600003
+anchor_right = 0.70900005
+anchor_bottom = 0.957
+offset_left = -0.28799438
+offset_top = -0.43200684
+offset_right = -52.432037
+offset_bottom = -44.259033
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.25, 1.25)
+horizontal_alignment = 1
+text_direction = 3
+
+[node name="WinnerLabel" type="Label" parent="." unique_id=978615299]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.120000005
+anchor_top = 0.18
+anchor_right = 0.88400006
+anchor_bottom = 0.29200003
+offset_left = 0.23999786
+offset_top = -0.36001587
+offset_right = 0.16796875
+offset_bottom = -0.3840332
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RollButtonSprite" type="Sprite2D" parent="." unique_id=476995116]
+z_index = 1
+position = Vector2(320.00003, 768)
+scale = Vector2(2.5113637, 2.7580645)
+texture = ExtResource("3_6aewd")
+hframes = 5
+vframes = 8
+
+[node name="RollButton" type="Button" parent="." unique_id=122705449]
+visibility_layer = 2
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.62700003
+anchor_right = 0.679
+anchor_bottom = 0.70000005
+offset_left = -9.728012
+offset_top = 2.695984
+offset_right = -9.992004
+offset_bottom = 2.5999756
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+action_mode = 0
+icon_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=2007020439]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30600002
+anchor_top = 0.609
+anchor_right = 0.71000004
+anchor_bottom = 0.734
+offset_left = -0.28800964
+offset_top = -0.5680542
+offset_right = -0.08001709
+offset_bottom = -0.5680542
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_colors/icon_disabled_color = Color(0.16445974, 0.16445976, 0.16445974, 0.4)
+theme_override_font_sizes/font_size = 49
+text = "Reset?"
+
+[node name="DiceSprite" type="Sprite2D" parent="." unique_id=39429690]
+modulate = Color(1, 0.6383593, 0.95613104, 1)
+position = Vector2(319, 501)
+texture = ExtResource("3_amygn")
+hframes = 5
+vframes = 9
+script = ExtResource("4_ps1la")
+
+[node name="LoseSound" type="AudioStreamPlayer2D" parent="." unique_id=479034418]
+position = Vector2(321, 315)
+stream = ExtResource("6_u2i7p")
+volume_db = -0.638
+pitch_scale = 0.9
+attenuation = 0.49999988
+
+[node name="VictorySound" type="AudioStreamPlayer2D" parent="." unique_id=933703711]
+position = Vector2(320, 303)
+stream = ExtResource("7_hh5pf")
+volume_db = -1.276
+
+[node name="LoserSkull" type="Sprite2D" parent="." unique_id=1373858092]
+position = Vector2(318, 499)
+scale = Vector2(0.3482143, 0.36454087)
+texture = ExtResource("8_bor5n")
+
+[node name="WinnerSprite" type="Sprite2D" parent="." unique_id=1025845706]
+position = Vector2(322, 311)
+texture = ExtResource("9_wltqy")
+hframes = 6
+vframes = 5
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1572814031]
+
+[node name="Coop" type="Control" parent="UI" unique_id=1854797462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoopContainer" type="VBoxContainer" parent="UI/Coop" unique_id=325267959]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 971.0
+offset_right = 167.0
+offset_bottom = 1064.0
+
+[node name="Title" type="Label" parent="UI/Coop/CoopContainer" unique_id=806366736]
+layout_mode = 2
+text = "Play with another"
+
+[node name="Host" type="Button" parent="UI/Coop/CoopContainer" unique_id=1283811778]
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="UI/Coop/CoopContainer" unique_id=2123781542]
+layout_mode = 2
+text = "Join"
+
+[node name="SessionInfoVBox" type="VBoxContainer" parent="UI" unique_id=1826672580]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SessionNotification" type="Label" parent="UI/SessionInfoVBox" unique_id=750343470]
+layout_mode = 2
+
+[node name="JoinCodeNode" type="Control" parent="UI" unique_id=1504908419]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/JoinCodeNode" unique_id=274748362]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="JoinCode" type="Label" parent="UI/JoinCodeNode/VBoxContainer" unique_id=1047921154]
+layout_mode = 2
+
+[node name="Join" type="Label" parent="UI/JoinCodeNode/VBoxContainer" unique_id=399835496]
+layout_mode = 2
+
+[node name="JoinBox" type="TextEdit" parent="UI/JoinCodeNode/VBoxContainer" unique_id=1220612574]
+layout_mode = 2
+placeholder_text = "Enter code-press join"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=866822297]
+replication_config = SubResource("SceneReplicationConfig_bor5n")
+
+[node name="EOSLogin" type="Node2D" parent="." unique_id=1209722590]
+script = ExtResource("10_wltqy")
+
+[node name="StatusDisplay" type="Label" parent="EOSLogin" unique_id=2079859235]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="UI/Coop/CoopContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/Coop/CoopContainer/Join" to="." method="_on_join_pressed"]

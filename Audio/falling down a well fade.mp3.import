@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cs2ufxs5rkynf"
+path="res://.godot/imported/falling down a well fade.mp3-3448fbee49e1154a62ca46fd8223a155.mp3str"
+
+[deps]
+
+source_file="res://Audio/falling down a well fade.mp3"
+dest_files=["res://.godot/imported/falling down a well fade.mp3-3448fbee49e1154a62ca46fd8223a155.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
